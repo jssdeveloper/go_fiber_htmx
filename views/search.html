@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block main %}
+<div>
+  <form action="/contacts" method="get">
+    <input type="search" name="q" id="" value="{{q}}" />
+    <input type="submit" name="" id="" />
+  </form>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <th scope="row">{{user.Id}}</th>
+      <td>{{user.Name}}</td>
+      <td>{{user.Phone}}</td>
+      <td>
+        <a href="/contacts/{{user.Id}}">View</a>
+        <a href="/contacts/{{user.Id}}/edit">Edit</a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+<div>
+  <a href="/contacts/add">Add user</a>
+</div>
+<div id="change"></div>
+
+{% endblock %}

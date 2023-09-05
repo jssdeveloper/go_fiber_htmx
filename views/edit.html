@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block main %}
+<form action="/contacts/:id" , method="post">
+  <input type="text" name="name" id="" value="{{user.Name}}" />
+  <input type="text" name="phone" id="" value="{{user.Phone}}" />
+  <input type="submit" value="update" id="" />
+</form>
+<div><a href="/contacts">Back</a></div>
+<button
+  hx-delete="/contacts/{{user.Id}}"
+  hx-target="body"
+  hx-push-url="true"
+  hx-confirm="Are you sure you want to delete this contact?"
+>
+  Button Delete
+</button>
+{% endblock %}

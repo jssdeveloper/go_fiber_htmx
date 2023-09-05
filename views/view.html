@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block main %}
+<h5>Name: {{user.Name}}</h5>
+<h5>Phone: {{user.Phone}}</h5>
+<div>
+  <a href="/contacts">Back</a>
+  <a href="/contacts/{{user.Id}}/edit">Edit</a>
+</div>
+
+{% endblock %}

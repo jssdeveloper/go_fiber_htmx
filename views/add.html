@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block main %}
+<h1 class="text-center">Add User</h1>
+<form action="/contacts/add" method="post">
+  <input type="text" name="name" id="name" placeholder="Enter Name" />
+  <input type="text" name="phone" id="phone" placeholder="Enter Phone" />
+  <input type="submit" name="" id="" />
+</form>
+<a href="/contacts">Back</a>
+
+{% endblock %}
