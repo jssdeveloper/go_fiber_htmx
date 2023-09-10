@@ -1,4 +1,7 @@
 {% extends 'base.html' %} {% block main %}
+
+<h3>spinner</h3>
+
 <div>
   <form action="/contacts" method="get">
     <input type="search" name="q" id="" value="{{q}}" />
@@ -33,6 +36,9 @@
 <div>
   <a href="/contacts/add">Add user</a>
 </div>
+
 <div id="change"></div>
+<div class="spinner" id="spinner">Loading...</div>
+<button hx-get="/spinner" hx-target="#change">Fetch data</button>
 
 {% endblock %}

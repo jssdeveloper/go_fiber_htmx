@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/django/v3"
@@ -12,6 +13,7 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: engine})
 	app.Static("/static", "./static")
+	app.Static("/static", "./styles")
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Redirect("/contacts")
@@ -106,6 +108,12 @@ func main() {
 		<li><a href="mailto:fred@example.com">Fred</a></li>
 	  </ul>
 	  <div><button hx-target="change" hx-swap="delete">hide</button></div>`)
+	})
+
+	app.Get("/spinner", func(c *fiber.Ctx) error {
+		time.Sleep(time.Second)
+		fmt.Println("connected")
+		return c.SendString("All data loaded")
 	})
 
 	app.Listen(":3000")
